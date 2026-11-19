@@ -1,0 +1,59 @@
+{
+  "default-configuration": "Release",
+  "configurations": [
+    { "name": "Debug", "file": { "anchor": "Configuration", "relative-path": "ExamplesProject.xcconfig" } },
+    { "name": "Release", "file": { "anchor": "Configuration", "relative-path": "ExamplesProject.xcconfig" } },
+  ],
+  "localizations": {
+    "development": "en",
+    "supported": [
+      "Base",
+    ],
+  },
+  "files": [
+    {
+      "kind": "folder",
+      "path": "Configuration",
+      "target-membership": [
+        "Examples",
+      ],
+      "membership-exceptions": [
+        {
+          "target": "Examples",
+          "exclusions": [
+            "ExamplesProject.xcconfig",
+            "ExamplesTarget.xcconfig",
+            "Info.plist",
+          ],
+        },
+      ],
+    },
+    { "kind": "folder", "path": "Sources", "target-membership": [ "Examples" ] },
+    {
+      "kind": "group",
+      "name": "Products",
+      "children": [
+        { "path": "<PRODUCTS>/Examples.plugin", "id": "2E10D86D30AE3E8200A19610", "type": "wrapper.cfbundle", "index": false },
+      ],
+    },
+  ],
+  "targets": [
+    {
+      "name": "Examples",
+      "id": "2E10D86C30AE3E8200A19610",
+      "product": "Products/Examples.plugin",
+      "product-type": "bundle",
+      "specialized-configurations": [
+        { "name": "Debug", "file": { "anchor": "Configuration", "relative-path": "ExamplesTarget.xcconfig" } },
+        { "name": "Release", "file": { "anchor": "Configuration", "relative-path": "ExamplesTarget.xcconfig" } },
+      ],
+      "build-phases": [
+        "compile-sources",
+        "frameworks",
+        "resources",
+      ],
+    },
+  ],
+  "last-upgrade": "27.2",
+  "last-swift-update": "27.2",
+}
