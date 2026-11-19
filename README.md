@@ -22,6 +22,24 @@ Learn various techniques to better create your own plug-ins for FxCore:
 * Download the FxCore installer directly from its landing page: https://fxfactory.com/info/fxcore/
 * ...or install FxFactory first, then download FxCore from its catalog: https://fxfactory.com/download/
 
+### Debugging
+
+While the project is set up to launch the FxCore.app, Xcode won't be able to attach to that process because the app initially lacks the entitlements that would make it debuggable. This can be addressed by:
+1. Extracting the app’s current entitlements.
+2. Adding entitlements to make the app debuggable.
+3. Codesigning the app, with its new entitlements, to run locally.
+
+In Terminal:
+```
+codesign --display --entitlements entitlements.plist --xml /Applications/FxCore.app
+plutil -replace com\\.apple\\.security\\.cs\\.disable-library-validation -bool true entitlements.plist
+plutil -replace com\\.apple\\.security\\.cs\\.allow-unsigned-executable-memory -bool true entitlements.plist
+plutil -replace com\\.apple\\.security\\.get-task-allow -bool true entitlements.plist
+plutil -replace com\\.apple\\.security\\.cs\\.allow-dyld-environment-variables -bool true entitlements.plist
+sudo codesign --force --options runtime --sign - --entitlements entitlements.plist /Applications/FxCore.app
+rm -Rf entitlements.plist
+```
+
 ## Authors
 
 Gabriele de Simone  
