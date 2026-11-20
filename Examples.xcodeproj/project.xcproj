@@ -21,7 +21,9 @@
         {
           "target": "Examples",
           "exclusions": [
+            "ExamplesProject.local.xcconfig",
             "ExamplesProject.xcconfig",
+            "ExamplesTarget.local.xcconfig",
             "ExamplesTarget.xcconfig",
             "Info.plist",
           ],

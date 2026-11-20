@@ -162,3 +162,7 @@ ENABLE_HARDENED_RUNTIME = YES
 // Versioning
 
 CURRENT_PROJECT_VERSION = 1
+
+// Allow overriding any setting through a local configuration file ignored by Source Control
+
+#include? "ExamplesProject.local.xcconfig"
