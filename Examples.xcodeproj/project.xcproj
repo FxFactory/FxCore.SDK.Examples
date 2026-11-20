@@ -1,8 +1,8 @@
 {
   "default-configuration": "Release",
   "configurations": [
-    { "name": "Debug", "file": { "anchor": "Configuration", "relative-path": "ExamplesProject.xcconfig" } },
-    { "name": "Release", "file": { "anchor": "Configuration", "relative-path": "ExamplesProject.xcconfig" } },
+    { "name": "Debug", "file": "Configuration/ExamplesProject.xcconfig" },
+    { "name": "Release", "file": "Configuration/ExamplesProject.xcconfig" },
   ],
   "localizations": {
     "development": "en",
@@ -12,22 +12,12 @@
   },
   "files": [
     {
-      "kind": "folder",
+      "kind": "group",
       "path": "Configuration",
-      "target-membership": [
-        "Examples",
-      ],
-      "membership-exceptions": [
-        {
-          "target": "Examples",
-          "exclusions": [
-            "ExamplesProject.local.xcconfig",
-            "ExamplesProject.xcconfig",
-            "ExamplesTarget.local.xcconfig",
-            "ExamplesTarget.xcconfig",
-            "Info.plist",
-          ],
-        },
+      "children": [
+        { "path": "ExamplesProject.xcconfig" },
+        { "path": "ExamplesTarget.xcconfig" },
+        { "path": "Info.plist" },
       ],
     },
     { "kind": "folder", "path": "Sources", "target-membership": [ "Examples" ] },
@@ -46,8 +36,8 @@
       "product": "Products/Examples.plugin",
       "product-type": "bundle",
       "specialized-configurations": [
-        { "name": "Debug", "file": { "anchor": "Configuration", "relative-path": "ExamplesTarget.xcconfig" } },
-        { "name": "Release", "file": { "anchor": "Configuration", "relative-path": "ExamplesTarget.xcconfig" } },
+        { "name": "Debug", "file": "Configuration/ExamplesTarget.xcconfig" },
+        { "name": "Release", "file": "Configuration/ExamplesTarget.xcconfig" },
       ],
       "build-phases": [
         "compile-sources",
