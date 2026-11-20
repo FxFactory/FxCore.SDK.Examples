@@ -12,7 +12,7 @@ import FxCore
 /// - Note: Shows how to declare some common defaults, such as having all your plug-ins
 ///   appear under the same category and with the same initial tag and icon.
 ///
-class BasePlugIn : FxCorePlugIn, @unchecked Sendable {
+class BasePlugIn : FxCorePlugIn {
     
     public override class var categories: [FxCoreCategoryName] { [FxCoreCategoryName(rawValue: "Examples")] }
     public override class var tag: FxCoreUITag { .pine }

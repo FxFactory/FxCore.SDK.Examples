@@ -17,7 +17,7 @@ import Metal
 ///   This is what allows the plug-in to create an cache data structures linked to
 ///   the Metal device accessible at execution.
 ///
-class TexturedQuadPlugIn : BasePlugIn, @unchecked Sendable {
+class TexturedQuadPlugIn : BasePlugIn {
     
     /// This plug-in is designed to render something to the current 3D environment, as
     /// such it must be declared a consumer.
